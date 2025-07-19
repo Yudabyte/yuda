@@ -1,0 +1,897 @@
+/* Universal Box Sizing */
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #000;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- */
+/* [Fungsi 1]: STYLING LAYAR LOADING SAAT AWAL */
+/* --- */
+.loading-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+    color: #000;
+}
+
+.loading-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loading-counter {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 8em;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.loading-bar-container {
+    width: 250px;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.442);
+    overflow: hidden;
+    opacity: 0;
+    margin: 0 auto;
+}
+
+.loading-bar {
+    width: 0%;
+    height: 100%;
+    background-color: black;
+    transform-origin: left;
+}
+
+.loading-extra-text {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9em;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 1.4;
+    overflow: hidden;
+    height: 3.2em; /* Untuk 2 baris teks */
+}
+
+.loading-extra-text.top-left { top: 20px; left: 20px; text-align: left; }
+.loading-extra-text.top-right { top: 20px; right: 20px; text-align: right; }
+.loading-extra-text.bottom-left { bottom: 20px; left: 20px; text-align: left; }
+.loading-extra-text.bottom-right { bottom: 20px; right: 20px; text-align: right; }
+
+/* --- */
+/* MAIN HEADER (Untuk Logo di atas Navbar) */
+/* --- */
+.main-header {
+    position: static; /* Diubah dari 'fixed' menjadi 'static' */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1002; /* Z-index kurang relevan untuk 'static' tapi bisa dipertahankan */
+    background-color: #ac0000a9; /* Set background putih solid */
+    padding: 10px 50px;
+    display: flex;
+    justify-content: flex-start; /* Logo di kiri */
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Tambah sedikit shadow agar terlihat terangkat */
+    margin-bottom: 0; /* Pastikan tidak ada margin bawah yang tidak perlu */
+}
+
+/* --- */
+/* NAVBAR (Modifikasi agar TIDAK mengikuti scrolling) */
+/* --- */
+.navbar {
+    position: static; /* Diubah dari 'fixed' menjadi 'static' */
+    top: auto; /* Properti 'top' tidak akan berpengaruh banyak dengan 'static' */
+    left: 0; /* Properti 'left' tidak akan berpengaruh banyak dengan 'static' */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 1001; /* Z-index kurang relevan untuk 'static' tapi bisa dipertahankan */
+    transition: background-color 0.3s ease;
+    color: #000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    margin-top: 0; /* Pastikan tidak ada margin atas yang tidak perlu */
+}
+
+/* --- */
+/* GENERAL PAGE STYLING - Sesuaikan padding-top untuk konten utama */
+/* --- */
+#main-content {
+    flex-grow: 1;
+    min-height: 100vh;
+    /* Karena header tidak lagi fixed, Anda mungkin perlu mengurangi atau menghapus padding-top ini */
+    /* Padding-top hanya diperlukan jika ada elemen fixed di atas konten utama */
+    padding-top: 0; /* Ubah menjadi 0 atau kurangi sesuai kebutuhan */
+}
+/* Nav item text swap */
+.nav-item .nav-text-main,
+.nav-item .nav-text-hover {
+    display: block;
+    position: relative;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.nav-item .nav-text-hover {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+}
+.nav-item:hover .nav-text-main {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+.nav-item:hover .nav-text-hover {
+    transform: translateY(-100%);
+    opacity: 1;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin-left: auto;
+}
+
+.navbar a.nav-item {
+    text-decoration: none;
+    color: #000; /* Pastikan warna font navigasi jelas */
+    font-size: 1.1em;
+    font-weight: 400;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.navbar a.nav-item::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+.navbar a.nav-item:hover::before {
+    transform: translateX(0%);
+}
+
+/* --- */
+/* GENERAL PAGE STYLING */
+/* --- */
+#main-content {
+    flex-grow: 1;
+    min-height: 100vh;
+    padding-top: 130px; /* Sesuaikan ini berdasarkan tinggi gabungan header (logo + navbar) */
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 60px 20px;
+    background-color: #fff;
+    color: #000;
+    min-height: 100vh;
+}
+
+.content-wrapper {
+    max-width: 1400px;
+    width: 100%;
+    z-index: 3;
+    padding: 0 20px;
+}
+
+.page h2 {
+    font-size: 3em;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-family: 'Clash Display', sans-serif;
+    color: #000;
+    text-align: center;
+}
+
+.page p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #000;
+    text-align: left;
+}
+
+/* --- */
+/* DUAL CONTENT SECTION (Teks Kiri-Kanan) */
+/* --- */
+.dual-content-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    min-height: 100vh;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.dual-content-section .content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+    padding: 0 40px;
+}
+
+.dual-content-section .left-column,
+.dual-content-section .right-column {
+    flex: 1;
+    min-width: 400px;
+    padding-top: 20px;
+}
+
+.dual-content-section h2 {
+    text-align: left;
+    margin-bottom: 25px;
+    font-size: 3.5em;
+    line-height: 1.1;
+}
+
+.dual-content-section h3 {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 1.8em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: left;
+    color: #000;
+}
+
+.dual-content-section p {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+    color: #333;
+}
+
+.dual-content-section ul {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+.dual-content-section ul li {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 25px;
+    color: #333;
+    overflow: hidden;
+}
+.dual-content-section ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: #000;
+    font-weight: bold;
+}
+
+
+/* --- */
+/* HERO SECTION */
+/* --- */
+.hero-section {
+    background-image: url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+    color: #000;
+    min-height: 100vh;
+    padding-top: 0;
+    padding-bottom: 0;
+    justify-content: center;
+}
+
+.hero-content {
+    position: relative;
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 3;
+    color: #000;
+    padding: 0 50px;
+}
+
+.overlay-boxes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 50px;
+    pointer-events: none;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.overlay-boxes .box {
+    position: relative;
+    flex: 1;
+    max-width: 440px;
+    height: 400px;
+    background-color: #f00000;
+    border: 1px solid rgb(0, 0, 0);
+    margin: 10px;
+    opacity: 0;
+    transform: translateY(-100px);
+    transition: all 1s ease;
+}
+
+.hero-text-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5em;
+    font-weight: 700;
+    line-height: 1;
+    perspective: 1000px;
+    margin-bottom: 40px;
+    font-family: 'Clash Display', sans-serif;
+    text-transform: uppercase;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.hero-text-wrapper > div {
+    flex: 1;
+    min-width: 45%;
+    margin: 10px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    line-height: 1.2;
+}
+
+.hero-text-wrapper .left-hero-text {
+    text-align: right;
+}
+
+.hero-text-wrapper .right-hero-text {
+    text-align: left;
+}
+
+.ui-ux-label {
+    position: absolute;
+    bottom: 50px; right: 50px;
+    font-size: 1.5em;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: 2px solid #000;
+    opacity: 0;
+    transform: translateX(50px);
+    font-family: 'Clash Display', sans-serif;
+    color: #000;
+}
+
+.hero-cta-button {
+    margin-top: 50px;
+    padding: 15px 30px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Clash Display', sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.hero-cta-button:hover {
+    background-color: #333;
+}
+
+
+/* --- */
+/* ABOUT SECTION VISUAL */
+/* --- */
+.about-section .visual-element-about {
+    width: 100%;
+    margin-top: 60px;
+    text-align: center;
+}
+.about-section .visual-element-about img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    object-fit: contain;
+    max-height: 500px;
+}
+
+/* --- */
+/* SERVICES SECTION */
+/* --- */
+.services-section .service-list {
+    margin-top: 30px;
+}
+.services-section .service-list li {
+    margin-bottom: 25px;
+}
+.services-section .service-list li h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.5em;
+    color: #000;
+}
+.services-section .service-list li p {
+    margin-bottom: 0;
+    font-size: 1em;
+    color: #555;
+}
+
+
+/* --- */
+/* PROCESS SECTION VISUAL */
+/* --- */
+.process-section .process-steps {
+    margin-top: 30px;
+}
+.process-section .process-steps li {
+    margin-bottom: 30px;
+    position: relative;
+    padding-left: 0;
+    counter-increment: step-counter;
+}
+.process-section .process-steps li::before {
+    content: none;
+}
+.process-section .process-steps li .step-number {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 3em;
+    font-weight: 700;
+    color: #000;
+    opacity: 0.2;
+    position: absolute;
+    left: -40px;
+    top: -10px;
+}
+.process-section .process-steps li h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.6em;
+}
+.process-section .process-steps li p {
+    font-size: 1em;
+    color: #555;
+}
+
+.process-section .visual-element-process {
+    width: 100%;
+    margin-top: 60px;
+    text-align: center;
+}
+.process-section .visual-element-process img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Jaga shadow untuk case study images */
+    object-fit: contain;
+    max-height: 500px;
+}
+
+
+/* --- */
+/* PORTFOLIO CASE STUDY SECTION */
+/* --- */
+.portfolio-case-section .project-meta {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: -10px;
+    margin-bottom: 30px;
+    text-align: left;
+    overflow: hidden;
+    position: relative;
+}
+.portfolio-case-section .full-width-visual {
+    width: 100%;
+    margin-top: 60px;
+    text-align: center;
+}
+.portfolio-case-section .full-width-visual img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Jaga shadow untuk case study images */
+    object-fit: contain;
+    max-height: 700px;
+}
+
+
+/* --- */
+/* PORTFOLIO GRID SECTION (Halaman 9) - TANPA BAYANGAN DAN BATAS PADA GAMBAR */
+/* --- */
+.portfolio-grid-section {
+    padding-top: 120px;
+    padding-bottom: 100px;
+    text-align: center;
+}
+
+.portfolio-grid-section .content-wrapper {
+    display: block;
+    text-align: center;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.portfolio-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent !important; /* Pastikan tidak ada latar belakang */
+    border: none !important; /* Pastikan tidak ada border */
+    border-radius: 0 !important; /* Pastikan tidak ada border-radius yang membuat bingkai */
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    text-decoration: none;
+    color: #000;
+    min-height: 300px;
+    text-align: center;
+    padding-bottom: 20px;
+    box-shadow: none !important; /* Sangat penting: Hapus bayangan pada item container */
+}
+
+.portfolio-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    width: 80%; /* Gambar lebih kecil dari kotak */
+    max-height: 250px;
+    object-position: center;
+    transition: transform 0.3s ease;
+    opacity: 1;
+    filter: brightness(1.0);
+    /* Hapus semua properti yang bisa menyebabkan bayangan atau batas */
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important; /* Pastikan tidak ada outline fokus */
+}
+
+.portfolio-item .project-title {
+    position: relative;
+    margin-top: 15px;
+    font-size: 1.2em;
+    font-weight: 600;
+    opacity: 1;
+    transform: translateY(0);
+    transition: none;
+    text-align: center;
+    width: calc(100% - 30px);
+    text-shadow: none;
+    font-family: 'Clash Display', sans-serif;
+    color: #000;
+    overflow: hidden;
+}
+
+/* --- */
+/* CONTACT SECTION */
+/* --- */
+.contact-section {
+    padding-top: 120px;
+    padding-bottom: 100px;
+    min-height: 80vh;
+    justify-content: center;
+}
+
+.contact-section .content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.contact-section h2 {
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.contact-section h3 {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.contact-info {
+    margin-top: 15px;
+    font-size: 1.1em;
+    color: #333;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    cursor: pointer;
+    min-height: 1.2em;
+    line-height: 1.2;
+    text-align: left;
+    margin-bottom: 10px;
+}
+.contact-info a {
+    color: #000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.contact-info a:hover {
+    color: #555;
+    text-decoration: underline;
+}
+
+/* --- */
+/* FOOTER */
+/* --- */
+.site-footer {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #fff;
+    font-size: 0.9em;
+    color: #000;
+    border-top: 1px solid #ddd;
+    margin-top: auto;
+}
+.site-footer p.swap-effect {
+    min-height: 1.2em;
+    line-height: 1.2em;
+    text-align: center;
+}
+
+/* --- */
+/* RESPONSIVE */
+/* --- */
+@media (max-width: 992px) {
+    .main-header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 20px;
+        position: fixed; /* TETAP FIXED DI MOBILE */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .logo-placeholder {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .navbar {
+        top: auto; /* Hapus `top` spesifik karena akan menempel di bawah main-header */
+        position: relative; /* Ini akan membuatnya menempel pada main-header saat main-header fixed */
+        width: 100%;
+        padding: 15px 20px;
+        margin-top: 0;
+        box-shadow: none; /* Hapus shadow navbar di mobile agar tidak bertumpuk */
+        background-color: transparent; /* Mungkin ingin transparan di mobile atau sesuaikan */
+    }
+    #main-content {
+        /* Total tinggi header di mobile bisa lebih besar karena flex-direction column */
+        /* Contoh: main-header (tinggi logo + padding) + navbar (tinggi nav items + padding) */
+        padding-top: 180px; /* Sesuaikan ini berdasarkan tinggi gabungan header dan navbar di mobile */
+    }
+    .dual-content-section .left-column,
+    .dual-content-section .right-column {
+        min-width: unset;
+        width: 100%;
+        flex: none;
+    }
+    .dual-content-section .content-wrapper {
+        flex-direction: column;
+        gap: 40px;
+        padding: 0 20px;
+    }
+    .dual-content-section h2,
+    .dual-content-section h3,
+    .dual-content-section p,
+    .dual-content-section ul,
+    .dual-content-section li {
+        text-align: center;
+    }
+    .dual-content-section ul li {
+        padding-left: 0;
+    }
+    .dual-content-section ul li::before {
+        position: static;
+        display: inline-block;
+        margin-right: 5px;
+    }
+    .process-section .process-steps li .step-number {
+        position: static;
+        display: block;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .hero-text-wrapper {
+        font-size: 3em;
+        flex-direction: column;
+    }
+    .hero-text-wrapper .left-hero-text,
+    .hero-text-wrapper .right-hero-text {
+        text-align: center;
+        min-width: 100%;
+        margin: 5px 0;
+    }
+    .ui-ux-label {
+        bottom: 20px;
+        right: 20px;
+        font-size: 1.2em;
+    }
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    .loading-counter {
+        font-size: 4em;
+    }
+    .loading-bar-container {
+        width: 150px;
+    }
+    .loading-extra-text {
+        font-size: 0.7em;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* --- */
+/* [KODE BARU DITAMBAHKAN DI AKHIR] */
+/* --- */
+/* Pastikan ini ada di style.css Anda */
+#blur-overlay {
+    position: fixed;
+    top: 0; /* Awalnya di bagian atas */
+    left: 0;
+    width: 100vw;
+    height: 100vh; /* Akan diatur oleh JS menjadi 50vh saat discroll */
+    backdrop-filter: blur(0px); /* Awalnya tidak ada blur */
+    background-color: rgba(255, 255, 255, 0); /* Awalnya transparan */
+    z-index: 9998;
+    opacity: 0; /* Awalnya tidak terlihat */
+    transition: opacity 0.5s ease, backdrop-filter 0.5s ease, height 0.3s ease, background-color 0.5s ease; /* Tambahkan transisi untuk height dan background */
+    pointer-events: none; /* Penting agar tidak menghalangi interaksi mouse */
+}
+
+/* Kelas yang akan ditambahkan/dihapus oleh JavaScript */
+/* Di style.css Anda */
+#blur-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh; /* Akan diatur oleh JS menjadi 50vh saat discroll */
+    backdrop-filter: blur(0px); /* Awalnya tidak ada blur */
+    background-color: rgba(255, 255, 255, 0); /* Awalnya transparan */
+    z-index: 9998;
+    opacity: 0; /* Awalnya tidak terlihat */
+    transition: opacity 0.5s ease, backdrop-filter 0.5s ease, height 0.3s ease, background-color 0.5s ease; /* Tambahkan transisi untuk height dan background */
+    pointer-events: none; /* Penting agar tidak menghalangi interaksi mouse */
+}
+
+#blur-overlay.active-scroll-down {
+    height: 50vh; /* Blur hanya setengah layar dari atas */
+    opacity: 1;
+    backdrop-filter: blur(20px); /* Intensitas blur saat aktif */
+    background-color: rgba(255, 255, 255, 0.4); /* Warna overlay */
+}
+
+/* Pastikan juga Anda tidak memiliki aturan CSS lain yang menimpa ini */
+/* Misalnya, jika ada !important di tempat lain yang bertentangan. */
+
+.swap-effect .text-swap-main,
+.swap-effect .text-swap-hover,
+.p-swap-effect .text-swap-main,
+.p-swap-effect .text-swap-hover {
+    display: block;
+    position: relative;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.swap-effect .text-swap-hover,
+.p-swap-effect .text-swap-hover {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+}
+
+/* Hover state for swap effect */
+.swap-effect:hover .text-swap-main,
+.swap-effect:hover .text-swap-hover,
+.p-swap-effect:hover .text-swap-main,
+.p-swap-effect:hover .text-swap-hover {
+    transform: translateY(-100%);
+    opacity: 1;
+}
+
+/* GARIS GRID VERTIKAL UNTUK SETIAP SECTION */
+.page::before {
+    content: ''; /* Changed to empty string, not ('') */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.247) 1px, transparent 1px);
+    background-size: calc(100% / 4) 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+.hero-section::before {
+    content: ''; /* Ensure content is set for pseudo-elements */
+    position: absolute; /* Needed to position correctly within the section */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.226) 1px, transparent 1px);
+    background-size: calc(100% / 8) 100%;
+    z-index: 1; /* Ensure it's above the background but below content */
+    pointer-events: none;
+}

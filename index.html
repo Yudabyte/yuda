@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuda Design Portfolio</title>
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"></noscript>
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,700,500,600,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script>
+// Global blur effect on scroll (for elements with .blur-on-scroll)
+let blurTimeout;
+window.addEventListener('scroll', function() {
+    document.querySelectorAll('.active-scroll-down').forEach(el => {
+        el.classList.add('is-blur');
+    });
+    clearTimeout(blurTimeout);
+    blurTimeout = setTimeout(() => {
+        document.querySelectorAll('.active-scroll-down').forEach(el => {
+            el.classList.remove('is-blur');
+        });
+    }, 1200); // Blur fades out 1.2 seconds after scroll stops
+});
+</script>
+
+<div class="loading-overlay">
+    <div class="loading-extra-text top-left">Yuda X Design<br>UI/UX & Logo Designer</div>
+    <div class="loading-extra-text top-right">Portfolio / 2025<br>Creative Showcase</div>
+    <div class="loading-counter" data-target="FUCK">LOADING</div>
+    <div class="loading-bar-container">
+        <div class="loading-bar"></div>
+    </div>
+    <div class="loading-extra-text bottom-left">Loading Experience...<br>Please Wait</div>
+    <div class="loading-extra-text bottom-right">Project<br>Design</div>
+</div>
+
+<div id="blur-overlay"></div>
+
+<div id="smooth-wrapper" data-scroll-container>
+    <header class="navbar" data-scroll data-scroll-sticky data-scroll-target="#smooth-wrapper">
+        <a href="#hero-page" class="logo nav-item" data-scroll-to>
+            <span class="nav-text-main">Yuda</span>
+            <span class="nav-text-hover">Design</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#hero-page" class="nav-item" data-scroll-to><span class="nav-text-main">Home</span><span class="nav-text-hover">Start</span></a></li>
+                <li><a href="#about-page" class="nav-item" data-scroll-to><span class="nav-text-main">About</span><span class="nav-text-hover">Info</span></a></li>
+                <li><a href="#services-page" class="nav-item" data-scroll-to><span class="nav-text-main">Services</span><span class="nav-text-hover">What I Do</span></a></li>
+                <li><a href="#process-page" class="nav-item" data-scroll-to><span class="nav-text-main">Process</span><span class="text-swap-hover">How I Work</span></a></li>
+                <li><a href="#uiux-case-1" class="nav-item" data-scroll-to><span class="nav-text-main">Portfolio</span><span class="nav-text-hover">Works</span></a></li>
+                <li><a href="#contact-page" class="nav-item" data-scroll-to><span class="nav-text-main">Contact</span><span class="nav-text-hover">Reach Out</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section id="hero-page" class="page hero-section" data-scroll-section>
+            <div class="grid-background"></div>
+            <div class="hero-content">
+                <div class="overlay-boxes">
+                    <div class="box box1" data-scroll data-scroll-speed="1.5"></div>
+                    <div class="box box2" data-scroll data-scroll-speed="1"></div>
+                    <div class="box box3" data-scroll data-scroll-speed="0.5"></div>
+                    <div class="box box4" data-scroll data-scroll-speed="2"></div>
+                    <div class="box box5" data-scroll data-scroll-speed="1.9"></div>
+                </div>
+                <div class="hero-text-wrapper active-scroll-down">
+                    <div class="left-hero-text swap-effect">
+                        <span class="text-swap-main">Yuda X Design:</span>
+                        <span class="text-swap-hover">CREATIVE DESIGN</span>
+                    </div>
+                    <div class="right-hero-text swap-effect active-scroll-down">
+                        <span class="text-swap-main">Menciptakan Pengalaman Digital yang Memukau.</span>
+                        <span class="text-swap-hover">INNOVATIVE SOLUTIONS</span>
+                    </div>
+                </div>
+                <div class="ui-ux-label" data-scroll data-scroll-speed="1.2">UI/UX & LOGO</div>
+                <a href="#uiux-case-1" class="hero-cta-button nav-item" data-scroll-to>
+                    <span class="nav-text-main">Jelajahi Karya</span>
+                    <span class="nav-text-hover">Lihat Portofolio</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="about-page" class="page dual-content-section about-section" data-scroll-section>
+            <div class="content-wrapper active-scroll-down">
+                <div class="left-column">
+                    <h2 class="swap-effect">
+                        <span class="text-swap-main">Siapa Saya:</span>
+                        <span class="text-swap-hover">Tentang Yuda Design</span>
+                    </h2>
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">Halo! Saya Yuda, seorang Desainer UI/UX dan Logo yang bersemangat dalam menciptakan solusi digital yang intuitif, estetis, dan berdampak.</span>
+                        <span class="text-swap-hover">Perjalanan saya dimulai dari ketertarikan mendalam akan bagaimana manusia berinteraksi dengan teknologi.</span>
+                    </p>
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">Saya percaya bahwa desain yang efektif lebih dari sekadar tampilan; ini tentang memecahkan masalah, meningkatkan usability, dan membangun koneksi emosional antara produk dan penggunanya.</span>
+                        <span class="text-swap-hover">Fokus saya adalah menciptakan desain yang indah dan fungsional.</span>
+                    </p>
+                </div>
+                <div class="right-column active-scroll-down">
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">Perjalanan saya di dunia desain dimulai dari ketertarikan mendalam akan bagaimana manusia berinteraksi dengan teknologi, yang kemudian mengarahkan saya untuk fokus pada perancangan pengalaman yang berpusat pada pengguna.</span>
+                        <span class="text-swap-hover">Dari situlah passion saya pada UX berkembang.</span>
+                    </p>
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">Saya senantiasa haus akan pembelajaran dan selalu siap menghadapi tantangan baru untuk mengembangkan keahlian saya dalam setiap proyek.</span>
+                        <span class="text-swap-hover">Saya selalu mencari cara untuk berinovasi.</span>
+                    </p>
+                    <h3 class="swap-effect active-scroll-down">
+                        <span class="text-swap-main">Keahlian Utama:</span>
+                        <span class="text-swap-hover">My Core Skills</span>
+                    </h3>
+                    <ul>
+                        <li><span class="swap-effect"><span class="text-swap-main">UI Design</span><span class="text-swap-hover">User Interface</span></span></li>
+                        <li><span class="swap-effect"><span class="text-swap-main">UX Research</span><span class="text-swap-hover">User Experience</span></span></li>
+                        <li><span class="swap-effect"><span class="text-swap-main">Wireframing & Prototyping</span><span class="text-swap-hover">Interactive Mockups</span></span></li>
+                        <li><span class="swap-effect"><span class="text-swap-main">User Testing</span><span class="text-swap-hover">Usability Validation</span></span></li>
+                        <li><span class="swap-effect"><span class="text-swap-main">Logo Design</span><span class="text-swap-hover">Brand Mark</span></span></li>
+                        <li><span class="swap-effect"><span class="text-swap-main">Brand Identity</span><span class="text-swap-hover">Visual System</span></span></li>
+                        <li><span class="swap-effect"><span class="text-swap-main">Web & Mobile App Design</span><span class="text-swap-hover">Responsive Design</span></span></li>
+                        <li><span class="swap-effect"><span class="text-swap-main">Information Architecture</span><span class="text-swap-hover">Content Structure</span></span></li>
+                    </ul>
+                </div>
+                <div class="visual-element-about active-scroll-down">
+                    <img src="assets/images/about-visual.webp" alt="Yuda Design About Me">
+                </div>
+            </div>
+        </section>
+
+        <section id="services-page" class="page dual-content-section services-section" data-scroll-section>
+            <div class="content-wrapper active-scroll-down">
+                <div class="left-column">
+                    <h2 class="swap-effect">
+                        <span class="text-swap-main">Layanan Desain Komprehensif</span>
+                        <span class="text-swap-hover">What I Offer</span>
+                    </h2>
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">Saya menyediakan solusi desain lengkap yang berfokus pada menciptakan pengalaman pengguna terbaik. Dari konsep hingga realisasi, saya membangun produk yang berdampak.</span>
+                        <span class="text-swap-hover">Transformasi ide menjadi produk digital yang sukses.</span>
+                    </p>
+                    <ul class="service-list">
+                        <li>
+                            <h3 class="swap-effect">
+                                <span class="text-swap-main">Desain UI/UX Penuh</span>
+                                <span class="text-swap-hover">Full UI/UX Design</span>
+                            </h3>
+                            <p class="swap-effect p-swap-effect">
+                                <span class="text-swap-main">Perancangan antarmuka pengguna (UI) yang menarik dan pengalaman pengguna (UX) yang mulus untuk aplikasi web, seluler, dan platform digital lainnya.</span>
+                                <span class="text-swap-hover">Menciptakan antarmuka yang intuitif dan indah.</span>
+                            </p>
+                        </li>
+                        <li>
+                            <h3 class="swap-effect">
+                                <span class="text-swap-main">Riset Pengguna & Analisis</span>
+                                <span class="text-swap-hover">User Research & Analysis</span>
+                            </h3>
+                            <p class="swap-effect p-swap-effect">
+                                <span class="text-swap-main">Mengidentifikasi kebutuhan, perilaku, dan motivasi pengguna melalui wawancara, survei, analisis kompetitor, dan pembuatan persona.</span>
+                                <span class="text-swap-hover">Desain yang didukung data nyata.</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="right-column">
+                    <ul class="service-list">
+                        <li>
+                            <h3 class="swap-effect">
+                                <span class="text-swap-main">Wireframing & Prototyping</span>
+                                <span class="text-swap-hover">Interactive Mockups</span>
+                            </h3>
+                            <p class="swap-effect p-swap-effect">
+                                <span class="text-swap-main">Mengembangkan kerangka dasar (wireframe) dan prototipe interaktif untuk memvisualisasikan alur pengguna dan menguji fungsionalitas awal.</span>
+                                <span class="text-swap-hover">Mewujudkan ide menjadi prototipe fungsional.</span>
+                            </p>
+                        </li>
+                        <li>
+                            <h3 class="swap-effect">
+                                <span class="text-swap-main">Pengujian Kegunaan (Usability Testing)</span>
+                                <span class="text-swap-hover">Real User Validation</span>
+                            </h3>
+                            <p class="swap-effect p-swap-effect">
+                                <span class="text-swap-main">Melakukan pengujian dengan pengguna nyata untuk mengidentifikasi masalah kegunaan, mengumpulkan umpan balik, dan memastikan desain intuitif.</span>
+                                <span class="text-swap-hover">Memastikan produk mudah digunakan oleh siapa saja.</span>
+                            </p>
+                        </li>
+                        <li>
+                            <h3 class="swap-effect">
+                                <span class="text-swap-main">Desain Logo & Identitas Merek</span>
+                                <span class="text-swap-hover">Branding Solutions</span>
+                            </h3>
+                            <p class="swap-effect p-swap-effect">
+                                <span class="text-swap-main">Menciptakan logo yang unik, berkesan, dan relevan, serta mengembangkan panduan identitas merek yang kohesif.</span>
+                                <span class="text-swap-hover">Membangun pondasi visual merek Anda.</span>
+                            </p>
+                        </li>
+                        <li>
+                            <h3 class="swap-effect">
+                                <span class="text-swap-main">Audit UX & Konsultasi</span>
+                                <span class="text-swap-hover">Expert UX Review</span>
+                            </h3>
+                            <p class="swap-effect p-swap-effect">
+                                <span class="text-swap-main">Mengevaluasi produk digital yang ada untuk mengidentifikasi area perbaikan, meningkatkan kinerja, dan memberikan rekomendasi strategis.</span>
+                                <span class="text-swap-hover">Meningkatkan kualitas pengalaman pengguna yang ada.</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="process-page" class="page dual-content-section process-section" data-scroll-section>
+            <div class="content-wrapper blur-on-scroll">
+                <div class="left-column">
+                    <h2 class="swap-effect">
+                        <span class="text-swap-main">Proses Desain yang Terbukti</span>
+                        <span class="text-swap-hover">My Proven Design Workflow</span>
+                    </h2>
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">Setiap proyek adalah perjalanan unik, namun saya mengikuti metodologi desain yang terstruktur dan adaptif untuk memastikan hasil terbaik. Pendekatan saya berpusat pada kolaborasi, riset mendalam, dan iterasi berkelanjutan.</span>
+                        <span class="text-swap-hover">Dari ide menjadi solusi nyata dengan langkah yang jelas.</span>
+                    </p>
+                    <ul class="process-steps">
+                        <li>
+                            <span class="step-number">01</span>
+                            <h3 class="swap-effect"><span class="text-swap-main">Memahami (Understand)</span><span class="text-swap-hover">The Discovery Phase</span></h3>
+                            <p class="swap-effect p-swap-effect"><span class="text-swap-main">Pertemuan awal dengan klien untuk memahami tujuan, tantangan, dan visi proyek. Analisis target audiens dan lanskap kompetitor.</span><span class="text-swap-hover">Mendefinisikan kebutuhan inti proyek.</span></p>
+                        </li>
+                        <li>
+                            <span class="step-number">02</span>
+                            <h3 class="swap-effect"><span class="text-swap-main">Menjelajahi (Explore)</span><span class="text-swap-hover">Research & Ideation</span></h3>
+                            <p class="swap-effect p-swap-effect"><span class="text-swap-main">Melakukan riset pengguna mendalam, mengembangkan persona pengguna dan peta perjalanan pengguna. Brainstorming ide dan konsep awal.</span><span class="text-swap-hover">Mencari solusi inovatif dan berbasis data.</span></p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="right-column">
+                    <ul class="process-steps">
+                        <li>
+                            <span class="step-number">03</span>
+                            <h3 class="swap-effect"><span class="text-swap-main">Membentuk (Formulate)</span><span class="text-swap-hover">Wireframing & Prototyping</span></h3>
+                            <p class="swap-effect p-swap-effect"><span class="text-swap-main">Pembuatan wireframe (sketsa digital) untuk menyusun struktur dan alur. Pengembangan prototipe interaktif untuk memvisualisasikan fungsionalitas.</span><span class="text-swap-hover">Membangun kerangka dasar interaksi produk.</span></p>
+                        </li>
+                        <li>
+                            <span class="step-number">04</span>
+                            <h3 class="swap-effect"><span class="text-swap-main">Memurnikan (Refine)</span><span class="text-swap-hover">Visual Design & Testing</span></h3>
+                            <p class="swap-effect p-swap-effect"><span class="text-swap-main">Desain antarmuka pengguna (UI) yang mendetail, termasuk gaya visual, tipografi, dan palet warna. Pengujian kegunaan dengan pengguna nyata untuk mengumpulkan umpan balik dan iterasi.</span><span class="text-swap-hover">Menyempurnakan estetika dan fungsionalitas.</span></p>
+                        </li>
+                        <li>
+                            <span class="step-number">05</span>
+                            <h3 class="swap-effect"><span class="text-swap-main">Membangun (Build)</span><span class="text-swap-hover">Implementation & Launch</span></h3>
+                            <p class="swap-effect p-swap-effect"><span class="text-swap-main">Mempersiapkan aset desain dan panduan gaya untuk handover ke pengembang. Kolaborasi erat dengan tim pengembangan untuk memastikan implementasi yang akurat.</span><span class="text-swap-hover">Memastikan transisi mulus dari desain ke produk.</span></p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="visual-element-process">
+                    <img src="assets/images/process-flow.webp" alt="Design Process Flow">
+                </div>
+            </div>
+        </section>
+
+        <section id="uiux-case-1" class="page dual-content-section portfolio-case-section" data-scroll-section>
+            <div class="content-wrapper blur-on-scroll">
+                <div class="left-column">
+                    <h2 class="swap-effect">
+                        <span class="text-swap-main">[Nama Aplikasi/Platform]</span>
+                        <span class="text-swap-hover">E-commerce App Redesign</span>
+                    </h2>
+                    <h3 class="swap-effect"><span class="text-swap-main">Merancang Pengalaman Belanja Online yang Intuitif.</span><span class="text-swap-hover">Seamless Shopping Experience.</span></h3>
+                    <p class="project-meta swap-effect p-swap-effect">
+                        <span class="text-swap-main">Kategori: Aplikasi E-commerce Mobile | Klien: [Nama Klien/Proyek Pribadi] | Tahun: 2024</span>
+                        <span class="text-swap-hover">Mobile E-commerce | Client: [Your Client] | Year: 2024</span>
+                    </p>
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">**Tantangan:** Klien menghadapi tingkat konversi yang rendah dan feedback negatif terkait alur checkout yang rumit pada aplikasi e-commerce mereka. Pengguna kesulitan menemukan produk dan menyelesaikan pembelian.</span>
+                        <span class="text-swap-hover">Problem: Low conversion & complex checkout.</span>
+                    </p>
+                </div>
+                <div class="right-column">
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">**Solusi & Peran Saya:** Saya memimpin riset pengguna mendalam, termasuk wawancara dan analisis data perilaku. Berdasarkan temuan, saya merancang ulang alur pencarian, halaman produk, dan proses checkout. Saya bertanggung jawab atas wireframing, prototyping, desain visual UI, dan pengujian kegunaan.</span>
+                        <span class="text-swap-hover">My Role: Full UX/UI redesign from research to testing.</span>
+                    </p>
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">Fokus utama saya adalah menyederhanakan navigasi, meningkatkan kejelasan informasi produk, dan mempercepat proses pembayaran.</span>
+                        <span class="text-swap-hover">Key Focus: Simplicity, clarity, speed.</span>
+                    </p>
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">**Dampak/Hasil:** Setelah peluncuran desain baru, aplikasi mengalami peningkatan tingkat konversi sebesar 25% dan penurunan angka bounce rate pada halaman checkout sebesar 15%. Umpan balik pengguna juga menjadi sangat positif.</span>
+                        <span class="text-swap-hover">Impact: +25% conversion, -15% bounce rate, positive user feedback.</span>
+                    </p>
+                </div>
+                <div class="full-width-visual">
+                    <img src="assets/images/portfolio/images1.webp" alt="UI/UX Case Study 1 - E-commerce App">
+                </div>
+            </div>
+        </section>
+
+        <section id="uiux-case-2" class="page dual-content-section portfolio-case-section" data-scroll-section>
+            <div class="content-wrapper blur-on-scroll">
+                <div class="left-column">
+                    <h2 class="swap-effect">
+                        <span class="text-swap-main">[Nama Platform]</span>
+                        <span class="text-swap-hover">Analytics Dashboard UX</span>
+                    </h2>
+                    <h3 class="swap-effect"><span class="text-swap-main">Membangun Dashboard Analitik yang Mudah Digunakan.</span><span class="text-swap-hover">User-Friendly Data Visualization.</span></h3>
+                    <p class="project-meta swap-effect p-swap-effect">
+                        <span class="text-swap-main">Kategori: Web Dashboard / Aplikasi B2B | Klien: [Nama Klien/Proyek Pribadi] | Tahun: 2023</span>
+                        <span class="text-swap-hover">Web Dashboard | Client: [Your Client] | Year: 2023</span>
+                    </p>
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">**Tantangan:** Perusahaan membutuhkan dashboard analitik yang intuitif untuk memvisualisasikan data penjualan kompleks bagi tim internal mereka. Dashboard yang ada terlalu padat dan sulit diinterpretasikan.</span>
+                        <span class="text-swap-hover">Problem: Complex data, difficult to interpret dashboard.</span>
+                    </p>
+                </div>
+                <div class="right-column">
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">**Solusi & Peran Saya:** Saya bertugas sebagai desainer UX utama, bekerja sama dengan analis data untuk memahami hierarki informasi. Saya merancang arsitektur informasi yang baru, mengelompokkan data secara logis, dan membuat visualisasi yang jelas dan mudah dipahami.</span>
+                        <span class="text-swap-hover">My Role: UX Lead, re-architected information, clear visualizations.</span>
+                    </p>
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">Fokus saya adalah pada desain interaksi yang memungkinkan pengguna memfilter dan mengeksplorasi data dengan mudah, serta mendesain komponen UI yang konsisten dan fungsional.</span>
+                        <span class="text-swap-hover">Key Focus: Easy data filtering & exploration.</span>
+                    </p>
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">**Dampak/Hasil:** Penggunaan dashboard meningkat signifikan, dengan pengguna melaporkan efisiensi 30% dalam mengakses informasi krusial. Keputusan bisnis kini lebih cepat dan berbasis data.</span>
+                        <span class="text-swap-hover">Impact: +30% efficiency in data access, faster data-driven decisions.</span>
+                    </p>
+                </div>
+                <div class="full-width-visual">
+                    <img src="assets/images/portfolio/images2.webp" alt="UI/UX Case Study 2 - Analytics Dashboard">
+                </div>
+            </div>
+        </section>
+
+        <section id="logo-case-1" class="page dual-content-section portfolio-case-section" data-scroll-section>
+            <div class="content-wrapper blur-on-scroll">
+                <div class="left-column">
+                    <h2 class="swap-effect">
+                        <span class="text-swap-main">[Nama Perusahaan/Merek]</span>
+                        <span class="text-swap-hover">Brand Identity Design</span>
+                    </h2>
+                    <h3 class="swap-effect"><span class="text-swap-main">Menciptakan Identitas Visual yang Berkarakter.</span><span class="text-swap-hover">Distinctive Visual Identity.</span></h3>
+                    <p class="project-meta swap-effect p-swap-effect">
+                        <span class="text-swap-main">Kategori: Desain Logo & Branding | Klien: [Nama Klien/Proyek Pribadi] | Tahun: 2024</span>
+                        <span class="text-swap-hover">Logo & Branding | Client: [Your Client] | Year: 2024</span>
+                    </p>
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">**Tantangan:** Startup baru di bidang teknologi [Sektor spesifik] membutuhkan identitas merek yang modern, dapat dipercaya, dan mudah diingat untuk membedakan diri dari kompetitor.</span>
+                        <span class="text-swap-hover">Problem: Need modern, trustworthy, memorable brand identity for tech startup.</span>
+                    </p>
+                </div>
+                <div class="right-column">
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">**Solusi & Peran Saya:** Saya mengembangkan konsep logo yang merefleksikan nilai-nilai inti perusahaan: inovasi, kepercayaan, dan pertumbuhan. Proses dimulai dari riset visual, pengembangan moodboard, sketsa konsep awal, hingga finalisasi desain logo.</span>
+                        <span class="text-swap-hover">My Role: Developed logo concept, moodboard, sketches, final design.</span>
+                    </p>
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">Saya juga merancang palet warna, tipografi, dan elemen visual pendukung untuk memastikan konsistensi merek di semua media.</span>
+                        <span class="text-swap-hover">Extended to color palette, typography, supporting visuals.</span>
+                    </p>
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">**Dampak/Hasil:** Merek berhasil diluncurkan dengan identitas visual yang kuat, membantu klien menarik investor dan membangun citra profesional di mata target pasar mereka.</span>
+                        <span class="text-swap-hover">Impact: Strong visual identity, attracted investors, built professional image.</span>
+                    </p>
+                </div>
+                <div class="full-width-visual">
+                    <img src="assets/images/portfolio/images3.webp" alt="Logo & Branding Case Study 1">
+                </div>
+            </div>
+        </section>
+
+        <section id="logo-case-2" class="page dual-content-section portfolio-case-section" data-scroll-section>
+            <div class="content-wrapper blur-on-scroll">
+                <div class="left-column">
+                    <h2 class="swap-effect">
+                        <span class="text-swap-main">[Nama Cafe/Restoran]</span>
+                        <span class="text-swap-hover">Cafe Brand Identity</span>
+                    </h2>
+                    <h3 class="swap-effect"><span class="text-swap-main">Merancang Brand Persona yang Hangat & Mengundang.</span><span class="text-swap-hover">Warm & Inviting Brand Persona.</span></h3>
+                    <p class="project-meta swap-effect p-swap-effect">
+                        <span class="text-swap-main">Kategori: Desain Logo & Identitas Visual untuk F&B | Klien: [Nama Klien/Proyek Pribadi] | Tahun: 2023</span>
+                        <span class="text-swap-hover">F&B Branding | Client: [Your Client] | Year: 2023</span>
+                    </p>
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">**Tantangan:** Sebuah kedai kopi baru ingin menciptakan identitas visual yang unik yang mencerminkan suasana *cozy* dan kualitas biji kopi premium mereka. Mereka ingin logo yang bisa diaplikasikan di berbagai media.</span>
+                        <span class="text-swap-hover">Problem: Need unique visual identity for cozy, premium coffee shop.</span>
+                    </p>
+                </div>
+                <div class="right-column">
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">**Solusi & Peran Saya:** Saya merancang logo yang menggabungkan elemen tradisional dan modern, dengan fokus pada tipografi kustom dan ikonografi yang hangat. Proses melibatkan eksplorasi bentuk, warna, dan gaya yang berbeda.</span>
+                        <span class="text-swap-hover">My Role: Designed logo blending traditional/modern, custom typography, warm iconography.</span>
+                    </p>
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">Saya juga membuat pola dan ilustrasi pendukung yang dapat digunakan di kemasan dan dekorasi interior.</span>
+                        <span class="text-swap-hover">Created supporting patterns and illustrations for packaging & interior.</span>
+                    </p>
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">**Dampak/Hasil:** Identitas merek yang kuat membantu kafe menarik pelanggan dan menciptakan atmosfer yang khas, mendorong peningkatan penjualan dan loyalitas pelanggan.</span>
+                        <span class="text-swap-hover">Impact: Strong brand attracted customers, created unique atmosphere, boosted sales & loyalty.</span>
+                    </p>
+                </div>
+                <div class="full-width-visual">
+                    <img src="assets/images/portfolio/images4.webp" alt="Logo & Branding Case Study 2">
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio-grid-section" class="page portfolio-grid-section" data-scroll-section>
+            <div class="content-wrapper blur-on-scroll">
+                <h2 class="swap-effect">
+                    <span class="text-swap-main">Karya Lainnya: Sekilas Inovasi & Estetika.</span>
+                    <span class="text-swap-hover">More Projects: Innovation & Aesthetics.</span>
+                </h2>
+                <p class="swap-effect p-swap-effect">
+                    <span class="text-swap-main">Berikut adalah beberapa proyek lain yang menunjukkan beragam keahlian saya dalam desain UI/UX dan logo. Setiap karya adalah bukti komitmen saya terhadap kualitas dan detail.</span>
+                    <span class="text-swap-hover">A collection showcasing my diverse UI/UX and logo design skills.</span>
+                </p>
+                <div class="portfolio-grid blur-on-scroll">
+                    <div class="portfolio-item swap-effect">
+                        <img src="assets/images/portfolio/images5.webp" alt="AI Gemini Project 5">
+                        <span class="project-title"><span class="text-swap-main">Mobile Banking App Redesign</span><span class="text-swap-hover">Banking App UX/UI</span></span>
+                    </div>
+                    <div class="portfolio-item swap-effect">
+                        <img src="assets/images/portfolio/images6.webp" alt="AI Gemini Project 6">
+                        <span class="project-title"><span class="text-swap-main">Eco-Friendly Brand Logo</span><span class="text-swap-hover">Sustainable Branding</span></span>
+                    </div>
+                    <div class="portfolio-item swap-effect">
+                        <img src="assets/images/portfolio/images7.webp" alt="AI Gemini Project 7">
+                        <span class="project-title"><span class="text-swap-main">Healthcare Platform UX Audit</span><span class="text-swap-hover">Health Tech UX Review</span></span>
+                    </div>
+                    <div class="portfolio-item swap-effect">
+                        <img src="assets/images/portfolio/images8.webp" alt="AI Gemini Project 8">
+                        <span class="project-title"><span class="text-swap-main">Podcast Branding Identity</span><span class="text-swap-hover">Audio Show Visuals</span></span>
+                    </div>
+                    <div class="portfolio-item swap-effect">
+                        <img src="assets/images/portfolio/images9.webp" alt="Ai Gemini Project 9">
+                        <span class="project-title"><span class="text-swap-main">Fitness App UI Kit</span><span class="text-swap-hover">Workout App Design</span></span>
+                    </div>
+                     <div class="portfolio-item swap-effect">
+                        <img src="assets/images/portfolio/images10.webp" alt="AI Gemini Project 10">
+                        <span class="project-title"><span class="text-swap-main">Tech Conference Logo</span><span class="text-swap-hover">Event Branding</span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-page" class="page dual-content-section contact-section" data-scroll-section>
+            <div class="content-wrapper blur-on-scroll">
+                <div class="left-column">
+                    <h2 class="swap-effect">
+                        <span class="text-swap-main">Mari Terhubung & Wujudkan Visi Anda!</span>
+                        <span class="text-swap-hover">Let's Connect & Create!</span>
+                    </h2>
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">Siap untuk berkolaborasi dalam proyek desain yang menarik? Apakah Anda memiliki ide brilian untuk aplikasi baru, membutuhkan identitas merek yang kuat, atau hanya ingin berdiskusi tentang potensi desain, saya sangat senang untuk terhubung.</span>
+                        <span class="text-swap-hover">I'm ready to discuss your next design project.</span>
+                    </p>
+                </div>
+                <div class="right-column">
+                    <h3 class="swap-effect">
+                        <span class="text-swap-main">Informasi Kontak:</span>
+                        <span class="text-swap-hover">Get in Touch:</span>
+                    </h3>
+                    <p class="contact-info swap-effect p-swap-effect">
+                        <span class="text-swap-main">Email: <a href="mailto:yudadarnoto231@gmail.com">yudadarnoto231@gmail.com</a></span>
+                        <span class="text-swap-hover">Send me an email!</span>
+                    </p>
+                    <p class="contact-info swap-effect p-swap-effect">
+                        <span class="text-swap-main">LinkedIn: <a href="https://linkedin.com/in/yudaxdesign" target="_blank">linkedin.com/in/yudaxdesign</a></span>
+                        <span class="text-swap-hover">Connect on LinkedIn!</span>
+                    </p>
+                    <p class="contact-info swap-effect p-swap-effect">
+                        <span class="text-swap-main">Behance: <a href="https://www.behance.net/yudaxdesign" target="_blank">behance.net/yudaxdesign</a></span>
+                        <span class="text-swap-hover">See more work on Behance!</span>
+                    </p>
+                    <p class="swap-effect p-swap-effect">
+                        <span class="text-swap-main">Saya menantikan kesempatan untuk berkolaborasi dengan Anda. Mari kita ciptakan sesuatu yang luar biasa bersama!</span>
+                        <span class="text-swap-hover">Looking forward to building something amazing!</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" data-scroll-section>
+        <p class="swap-effect p-swap-effect">
+            <span class="text-swap-main">© 2025 Yuda X Design. All rights reserved.</span>
+            <span class="text-swap-hover">Crafted with passion by Yuda.</span>
+        </p>
+    </footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
